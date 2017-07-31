@@ -1,0 +1,49 @@
+filebeat:
+  prospectors:
+  - document_type: log
+    encoding: plain
+    fields:
+      collector_node_id: graylog-collector-sidecar
+      gl2_source_collector: df679aa2-ecdf-477a-9bf1-0bbd5e80b163
+    ignore_older: 0
+    input_type: log
+    paths:
+    - /var/log/containers/*.log
+    scan_frequency: 10s
+    tail_files: true
+output:
+  logstash:
+    hosts:
+    - graylog:5044
+path:
+  data: /var/cache/graylog/collector-sidecar/filebeat/data
+  logs: /var/log/graylog/collector-sidecar
+tags:
+- linux
+- docker
+
+filebeat:
+  prospectors:
+  - document_type: log
+    encoding: plain
+    fields:
+      collector_node_id: graylog-collector-sidecar
+      gl2_source_collector: df679aa2-ecdf-477a-9bf1-0bbd5e80b163
+    ignore_older: 0
+    input_type: log
+    paths:
+    - /var/log/containers/*.log
+    scan_frequency: 10s
+    tail_files: true
+    symlinks: true
+output:
+  logstash:
+    hosts:
+    - graylog:5044
+path:
+  data: /var/cache/graylog/collector-sidecar/filebeat/data
+  logs: /var/log/graylog/collector-sidecar
+tags:
+- linux
+- docker
+
